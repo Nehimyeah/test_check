@@ -1,0 +1,14 @@
+web:
+  image: test:staging
+  ports:
+    - "5000:5000"
+  links:
+    - datastore
+datastore:
+  image: mongo:3.0.2
+  ports:
+    - "27017:27017"
+  volumes:
+    - mongodb:/data/db
+    - mongodb_config:/data/configdb
+
